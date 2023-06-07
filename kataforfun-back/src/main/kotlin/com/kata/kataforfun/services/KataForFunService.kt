@@ -1,6 +1,5 @@
 package com.kata.kataforfun.services
 
-import org.springframework.stereotype.Component
 import org.springframework.stereotype.Service
 
 @Service
@@ -14,15 +13,16 @@ class KataForFunService {
         val resultDivisors = StringBuilder()
         val resultElement = StringBuilder()
 
-
         when (inputNumber) {
-            else -> {
+            in Int.MIN_VALUE..Int.MAX_VALUE -> {
                 if (inputNumber % 3 == 0) {
                     resultDivisors.append("Kata")
                 }
                 if (inputNumber % 5 == 0) {
                     resultDivisors.append("For")
                 }
+            }
+        }
                 if (inputNumber == 3) {
                     resultElement.append("Kata")
                 }
@@ -32,8 +32,8 @@ class KataForFunService {
                 if (inputNumber == 7) {
                     resultElement.append("Fun")
                 }
-            }
-        }
+
+
 
         if (digitsList.size > 1) {
             digitsList.forEach { element ->
