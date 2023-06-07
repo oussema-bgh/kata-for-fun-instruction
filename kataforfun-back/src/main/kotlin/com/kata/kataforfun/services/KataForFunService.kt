@@ -23,15 +23,15 @@ class KataForFunService {
                 }
             }
         }
-                if (inputNumber == 3) {
-                    resultElement.append("Kata")
-                }
-                if (inputNumber == 5) {
-                    resultElement.append("For")
-                }
-                if (inputNumber == 7) {
-                    resultElement.append("Fun")
-                }
+        if (inputNumber == 3) {
+            resultElement.append("Kata")
+        }
+        if (inputNumber == 5) {
+            resultElement.append("For")
+        }
+        if (inputNumber == 7) {
+            resultElement.append("Fun")
+        }
 
 
 
