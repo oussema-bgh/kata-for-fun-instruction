@@ -1,61 +1,50 @@
 package com.kata.kataforfun.services
 
 import org.springframework.stereotype.Component
+import org.springframework.stereotype.Service
 
-@Component
+@Service
 class KataForFunService {
 
     fun convertNumber(inputNumber: Int): String {
-        println(inputNumber);
 
         val digitsList = inputNumber.toString().map { it.toString().toInt() }.toList()
 
 
         val resultDivisors = StringBuilder()
-        val resultElment = StringBuilder()
+        val resultElement = StringBuilder()
 
 
-        if(0 == inputNumber % 3){
-            resultDivisors.append("Kata")
-        }
-        if(0 == inputNumber % 5){
-            resultDivisors.append("For")
-        }
-        if(3 == inputNumber ){
-            resultElment.append("Kata")
-        }
-        if(5 == inputNumber ){
-            resultElment.append("For")
-        }
-        if (7 == inputNumber) {
-            resultElment.append("Fun")
-        }
-
-        if(digitsList.size>1) {
-            for (element in digitsList) {
-
-                println("element $element");
-                println("result_Divisors $resultDivisors");
-                println("result_Elment $resultElment");
-
-
-                if (0 == element % 3) {
+        when (inputNumber) {
+            else -> {
+                if (inputNumber % 3 == 0) {
                     resultDivisors.append("Kata")
                 }
-                if (0 == element % 5) {
+                if (inputNumber % 5 == 0) {
                     resultDivisors.append("For")
                 }
-                if (7 == element) {
-                    resultElment.append("Fun")
+                if (inputNumber == 3) {
+                    resultElement.append("Kata")
+                }
+                if (inputNumber == 5) {
+                    resultElement.append("For")
+                }
+                if (inputNumber == 7) {
+                    resultElement.append("Fun")
                 }
             }
         }
-        println("result_Divisors version prefinal $resultDivisors");
-        println("result_Elment version final $resultElment");
 
-
-        resultDivisors.append(resultElment.toString());
-        println("result_Divisors final $resultDivisors");
+        if (digitsList.size > 1) {
+            digitsList.forEach { element ->
+                when {
+                    0 == element % 3 -> resultDivisors.append("Kata")
+                    0 == element % 5 -> resultDivisors.append("For")
+                    7 == element -> resultElement.append("Fun")
+                }
+            }
+        }
+        resultDivisors.append(resultElement.toString())
 
         return if (resultDivisors.isEmpty()) {
             inputNumber.toString()
