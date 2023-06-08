@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FrontEndInstructionComponent } from './front-end-instruction/front-end-instruction.component';
 import { BackEndInstructionComponent } from './back-end-instruction/back-end-instruction.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { BackEndInstructionComponent } from './back-end-instruction/back-end-ins
     BackEndInstructionComponent
   ],
   imports: [
-    BrowserModule, ReactiveFormsModule, HttpClientModule,
+     ReactiveFormsModule, FormsModule,HttpClientModule,BrowserModule,
     RouterModule.forRoot([
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
@@ -30,7 +31,7 @@ import { BackEndInstructionComponent } from './back-end-instruction/back-end-ins
     ])
   ],
   providers: [
-    { provide: 'SERVER_URL', useValue: 'http://localhost:8080' }
+    { provide: 'SERVER_URL', useValue: 'http://localhost:8080/kata-for-fun/' }
   ],
   bootstrap: [AppComponent]
 })

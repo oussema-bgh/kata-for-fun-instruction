@@ -1,21 +1,20 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, EventEmitter, Output } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-kata-for-fun-form',
   templateUrl: './kata-for-fun-form.component.html'
 })
-export class KataForFunFormComponent implements OnInit {
+export class KataForFunFormComponent   {
 
+  inputNumber: number;
 
-  constructor() {
-
-  }
-
-  ngOnInit(): void {
-  }
+  @Output() submitNumberOutput: EventEmitter<number> = new EventEmitter<number>();
 
   submitNumber(): void {
+    this.submitNumberOutput.emit(this.inputNumber);
   }
+
 
 }

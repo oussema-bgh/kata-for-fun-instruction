@@ -1,3 +1,6 @@
-<div class="container"> 
-    To Be Completed
+<div class="container">
+  <h2>Kata For Fun</h2>
+  <h4>Number to convert</h4>
+  <input type="number" [(ngModel)]="inputNumber" class="form-control" required>
+  <button class = "btn btn-primary" [disabled]="!inputNumber" (click)="submitNumber()">Convert</button>
 </div>
